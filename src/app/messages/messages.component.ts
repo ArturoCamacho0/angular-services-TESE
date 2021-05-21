@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// Importamos el servicio de los mensajes
 import { MessageService } from '../message.service';
 
 @Component({
@@ -8,16 +9,10 @@ import { MessageService } from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
+  // Inyectamos la dependencia
   constructor(public messageService: MessageService) {}
 
   ngOnInit() {
   }
 
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

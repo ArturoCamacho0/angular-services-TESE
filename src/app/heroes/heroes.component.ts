@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// Imporamos la interfaz de los heroes
 import { Hero } from '../hero';
+// Importamos los servicios
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
 
@@ -15,6 +17,7 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
 
+  // Inyectamos las dependencias para utilizar los servicios
   constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   ngOnInit() {
@@ -23,18 +26,13 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    // Agregamos el mensaje usando el servicio
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
+  // Traemos a los heroes con suscribe
   getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
   }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
